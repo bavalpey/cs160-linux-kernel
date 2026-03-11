@@ -1,0 +1,26 @@
+If:
+  PathMatch: (^|.*/)linux-.*/.*
+
+CompileFlags:
+  # Drop GCC-only and kernel warning flags that clangd cannot parse.
+  Remove: [-mpreferred-stack-boundary=*, -fno-allow-store-data-races, -fno-var-tracking-assignments, -mrecord-mcount, -fconserve-stack]
+
+---
+If:
+  PathMatch: (^|.*/)shared/.*
+
+CompileFlags:
+  # Provide default libc/GCC include paths for files built outside of the kernel
+  Add:
+    - -isystem
+    - /usr/local/include
+    - -isystem
+    - /usr/include
+    - -isystem
+    - /usr/include/x86_64-linux-gnu
+    - -isystem
+    - /usr/lib/gcc/x86_64-linux-gnu/14/include
+    - -isystem
+    - /usr/lib/gcc/x86_64-linux-gnu/13/include
+    - -isystem
+    - /usr/lib/gcc/x86_64-linux-gnu/12/include

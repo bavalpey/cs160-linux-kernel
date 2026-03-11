@@ -7,7 +7,7 @@ CompileFlags:
 
 ---
 If:
-  PathMatch: (^|.*/)shared/.*
+  PathMatch: ^shared/.*
 
 CompileFlags:
   # Provide default libc/GCC include paths for files built outside of the kernel

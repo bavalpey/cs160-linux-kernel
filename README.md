@@ -50,7 +50,7 @@ To compile the linux kernel, first, `cd` into the directory: `cd linux-5.4.284`.
 1. cd into the Linux kernel directory: `cd linux-5.4.284`
 2. Prepare the repository for a compile: `make mrproper`
 3. Copy over the compile config `cp ../cs160.config .config`
-4. Compile the linux kernel. `make -j$(nproc)` bzImage. This will take some time (it took my M4 Mac about 5 minutes).
+4. Compile the linux kernel. `make -j$(nproc) bzImage`. This will take some time (it took my M4 Mac about 5 minutes).
   - The `-j` argument is a flag to Make that tells it the number of jobs to run in parallel. The `nproc` command evaluates to the number of logical processors on the machine. This will dramatically speed up the compile time.
 
 Once you have compiled the first time, all you need to do is simply repeat the last command: `make -j$(nproc) bzImage`. This will automatically recompile anything that depends on files you modified.
